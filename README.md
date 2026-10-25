@@ -26,6 +26,8 @@ Notebook ini dapat dijalankan langsung di cloud tanpa instalasi lokal:
 
 👉 **[Jalankan di Google Colab (Klik di Sini)](https://colab.research.google.com/drive/1H2cyYVkeH3tRTUXjHypsI-PYQoJedkf3)**
 
+![Sentiment Distribution and WordCloud Preview](assets/nlp_results_preview.png)
+
 ---
 
 ## 🛠️ Alur Arsitektur & Metodologi Pipeline

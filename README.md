@@ -1,4 +1,4 @@
-# 📊 End-to-End YouTube Comments Sentiment Analysis & Indonesian NLP Pipeline
+# End-to-End YouTube Comments Sentiment Analysis & Indonesian NLP Pipeline
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1H2cyYVkeH3tRTUXjHypsI-PYQoJedkf3)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=Python&logoColor=white)
@@ -8,11 +8,10 @@
 
 ---
 
-## 📌 Project Overview
-
+## Project Overview
 Proyek ini adalah pipeline **Natural Language Processing (NLP) & Analisis Sentimen Bahasa Indonesia** berbasis end-to-end yang mengambil data opini publik secara langsung (*real-time scraping*) dari **YouTube Data API v3**, menjalankan pembersihan teks mendalam (*Indonesian Slang Normalization*), serta menerapkan mesin klasifikasi sentimen berbasis aturan cerdas (*Negation-Aware Sentiment Engine*).
 
-### 🎯 Tujuan Utama:
+### Tujuan Utama:
 1. **Automated Scraping:** Mengambil 500 komentar publik YouTube secara dinamis melalui integrasi resmi YouTube Data API v3 dengan mekanisme *pagination token*.
 2. **Text Preprocessing & Slang Normalization:** Mengeliminasi derau (*noise* seperti mention, URL, hashtag, simbol asing) serta memetakan singkatan dan bahasa gaul lokal Indonesia (`yg` $\rightarrow$ `yang`, `mantul` $\rightarrow$ `mantap`, `ga/gak` $\rightarrow$ `tidak`).
 3. **Negation-Aware Sentiment Engine:** Mengatasi kelemahan algoritma sentimen konvensional dengan membalikkan polaritas kata saat didahului oleh penyangkal (contoh: *"tidak bagus"* secara akurat diklasifikasikan sebagai **Negatif**, bukan Positif).
@@ -20,17 +19,17 @@ Proyek ini adalah pipeline **Natural Language Processing (NLP) & Analisis Sentim
 
 ---
 
-## 🚀 Coba Langsung di Google Colab
+## Coba Langsung di Google Colab
 
 Notebook ini dapat dijalankan langsung di cloud tanpa instalasi lokal:
 
-👉 **[Jalankan di Google Colab (Klik di Sini)](https://colab.research.google.com/drive/1H2cyYVkeH3tRTUXjHypsI-PYQoJedkf3)**
+**[Jalankan di Google Colab (Klik di Sini)](https://colab.research.google.com/drive/1H2cyYVkeH3tRTUXjHypsI-PYQoJedkf3)**
 
 ![Sentiment Distribution and WordCloud Preview](assets/nlp_results_preview.png)
 
 ---
 
-## 🛠️ Alur Arsitektur & Metodologi Pipeline
+## Alur Arsitektur & Metodologi Pipeline
 
 ```
 [YouTube Video Target (ID: TVvc8K8VwNI)]
@@ -56,7 +55,7 @@ Notebook ini dapat dijalankan langsung di cloud tanpa instalasi lokal:
 
 ---
 
-## 📈 Hasil Analisis Data (Studi Kasus 500 Komentar Publik)
+## Hasil Analisis Data (Studi Kasus 500 Komentar Publik)
 
 Berdasarkan ekstraksi 500 komentar nyata pada video publik (fokus opini kepemimpinan & sosial):
 
@@ -68,7 +67,7 @@ Berdasarkan ekstraksi 500 komentar nyata pada video publik (fokus opini kepemimp
 +--------------------------+-----------------------------+------------------------+
 ```
 
-### 💡 Temuan Analitis:
+### Temuan Analitis:
 1. **Sentimen Positif Mendominasi Opini Emosional (38.6% vs 4.4%):**  
    Dukungan masyarakat terhadap program video sangat tinggi, dengan kata kunci emosional teratas mencakup *hebat, mantap, amanah, inspirasi, peduli, berkah, sukses*.
 2. **Kategori Netral yang Seimbang (57.0%):**  
@@ -78,7 +77,7 @@ Berdasarkan ekstraksi 500 komentar nyata pada video publik (fokus opini kepemimp
 
 ---
 
-## 🔒 Praktik Terbaik Keamanan (Security Best Practices)
+## Praktik Terbaik Keamanan (Security Best Practices)
 
 Proyek ini tidak menyimpan (*no hardcoded keys*) API Key di dalam kode sumber repositori:
 * Mendukung pengambilan aman melalui **Google Colab Secrets (`userdata.get('YOUTUBE_API_KEY')`)**.
@@ -86,7 +85,7 @@ Proyek ini tidak menyimpan (*no hardcoded keys*) API Key di dalam kode sumber re
 
 ---
 
-## 📂 Struktur Berkas Repositori
+## Struktur Berkas Repositori
 
 ```
 ├── README.md                                      # Dokumentasi teknis & ringkasan bisnis
@@ -96,7 +95,7 @@ Proyek ini tidak menyimpan (*no hardcoded keys*) API Key di dalam kode sumber re
 
 ---
 
-## 👤 Author & Profil Analis
+## Author & Profil Analis
 
 * **Nama:** Rifasa Hadiarto (UNIKOM)
 * **Sertifikasi:** Certified Data Analyst — Badan Nasional Sertifikasi Profesi (BNSP)

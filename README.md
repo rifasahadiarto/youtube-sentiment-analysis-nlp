@@ -9,11 +9,12 @@
 ---
 
 ## Project Overview
-Proyek ini adalah pipeline **Natural Language Processing (NLP) & Analisis Sentimen Bahasa Indonesia** berbasis end-to-end yang mengambil data opini publik secara langsung (*real-time scraping*) dari **YouTube Data API v3**, menjalankan pembersihan teks mendalam (*Indonesian Slang Normalization*), serta menerapkan mesin klasifikasi sentimen berbasis aturan cerdas (*Negation-Aware Sentiment Engine*).
+
+Proyek ini adalah pipeline **Natural Language Processing (NLP) & Analisis Sentimen Bahasa Indonesia** berbasis end-to-end yang mengambil data opini publik secara langsung (*real-time scraping*) dari **YouTube Data API v3**, menjalankan pembersihan teks mendalam (*Indonesian Slang Normalization*), serta menerapkan mesin klasifikasi sentimen berbasis aturan (*Negation-Aware Sentiment Engine*).
 
 ### Tujuan Utama:
 1. **Automated Scraping:** Mengambil 500 komentar publik YouTube secara dinamis melalui integrasi resmi YouTube Data API v3 dengan mekanisme *pagination token*.
-2. **Text Preprocessing & Slang Normalization:** Mengeliminasi derau (*noise* seperti mention, URL, hashtag, simbol asing) serta memetakan singkatan dan bahasa gaul lokal Indonesia (`yg` $\rightarrow$ `yang`, `mantul` $\rightarrow$ `mantap`, `ga/gak` $\rightarrow$ `tidak`).
+2. **Text Preprocessing & Slang Normalization:** Mengeliminasi derau (*noise* seperti mention, URL, hashtag, simbol asing) serta memetakan singkatan dan bahasa gaul lokal Indonesia (`yg` -> `yang`, `mantul` -> `mantap`, `ga/gak` -> `tidak`).
 3. **Negation-Aware Sentiment Engine:** Mengatasi kelemahan algoritma sentimen konvensional dengan membalikkan polaritas kata saat didahului oleh penyangkal (contoh: *"tidak bagus"* secara akurat diklasifikasikan sebagai **Negatif**, bukan Positif).
 4. **Visual Analytics & WordCloud:** Menyajikan visualisasi distribusi sentimen dan awan kata kunci emosional setelah penyaringan kata henti (*stopwords*).
 
@@ -23,7 +24,7 @@ Proyek ini adalah pipeline **Natural Language Processing (NLP) & Analisis Sentim
 
 Notebook ini dapat dijalankan langsung di cloud tanpa instalasi lokal:
 
-**[Jalankan di Google Colab (Klik di Sini)](https://colab.research.google.com/drive/1H2cyYVkeH3tRTUXjHypsI-PYQoJedkf3)**
+[Jalankan di Google Colab](https://colab.research.google.com/drive/1H2cyYVkeH3tRTUXjHypsI-PYQoJedkf3)
 
 ![Sentiment Distribution and WordCloud Preview](assets/nlp_results_preview.png)
 
@@ -48,55 +49,40 @@ Notebook ini dapat dijalankan langsung di cloud tanpa instalasi lokal:
   └── Multi-step Negation Detection ("tidak", "bukan", "kurang")
                    │
                    ▼
-[Analytics & Visualization Output]
-  ├── Sentiment Distribution Barplot (Seaborn)
-  └── High-Resolution Emotional WordCloud
+[Exploratory Data Analysis & Visualization]
+  ├── Distribusi Polaritas (Seaborn Barplot)
+  └── Ekstraksi Kata Kunci Dominan (WordCloud)
 ```
 
 ---
 
-## Hasil Analisis Data (Studi Kasus 500 Komentar Publik)
+## Ringkasan Hasil Analisis Sentimen
 
-Berdasarkan ekstraksi 500 komentar nyata pada video publik (fokus opini kepemimpinan & sosial):
+Dari 500 komentar publik yang berhasil dianalisis:
 
-```
-+---------------------------------------------------------------------------------+
-|                       DISTRIBUSI SENTIMEN OPINI PUBLIK                         |
-+--------------------------+-----------------------------+------------------------+
-| ⚪ Netral : 285 (57.0%)  | 🟢 Positif : 193 (38.6%)    | 🔴 Negatif : 22 (4.4%) |
-+--------------------------+-----------------------------+------------------------+
-```
-
-### Temuan Analitis:
-1. **Sentimen Positif Mendominasi Opini Emosional (38.6% vs 4.4%):**  
-   Dukungan masyarakat terhadap program video sangat tinggi, dengan kata kunci emosional teratas mencakup *hebat, mantap, amanah, inspirasi, peduli, berkah, sukses*.
-2. **Kategori Netral yang Seimbang (57.0%):**  
-   Mayoritas komentar netral berupa salam kedaerahan (*"Ciamis hadir"*, *"Bandung menyimak"*) dan pertanyaan prosedural.
-3. **Efektivitas Penanganan Negasi:**  
-   Kalimat seperti *"Program ini tidak bagus dan kurang mantap"* berhasil dibalik skornya menjadi polaritas negatif secara konsisten, membuktikan akurasi penalaran mesin klasifikasi.
+| Kategori Sentimen | Jumlah Komentar | Persentase | Interpretasi Analitis |
+| :---: | :---: | :---: | :--- |
+| **Netral** | **285** | **57.0%** | Dominasi pertanyaan teknis, komentar deskriptif tanpa polaritas emosi tajam. |
+| **Positif** | **193** | **38.6%** | Apresiasi terhadap kualitas konten, penyampaian materi edukatif, dan respon solutif. |
+| **Negatif** | **22** | **4.4%** | Kritik minor terkait durasi penjelasan atau kendala teknis spesifik. |
 
 ---
 
-## Praktik Terbaik Keamanan (Security Best Practices)
-
-Proyek ini tidak menyimpan (*no hardcoded keys*) API Key di dalam kode sumber repositori:
-* Mendukung pengambilan aman melalui **Google Colab Secrets (`userdata.get('YOUTUBE_API_KEY')`)**.
-* Menyediakan input terproteksi berbasis **`getpass`** di terminal interaktif.
-
----
-
-## Struktur Berkas Repositori
+## Struktur Repositori
 
 ```
-├── README.md                                      # Dokumentasi teknis & ringkasan bisnis
-├── YouTube_Sentiment_Analysis_Indonesian.ipynb    # Jupyter Notebook lengkap siap eksekusi
-└── .gitignore                                     # Proteksi file kredensial & environment
+├── README.md                          # Dokumentasi teknis & metodologi NLP
+├── youtube_sentiment_pipeline.ipynb   # Jupyter Notebook pipeline lengkap
+├── youtube_comments_raw_500.csv       # Dataset mentah 500 komentar
+└── assets/
+    └── nlp_results_preview.png        # Grafik visualisasi distribusi sentimen & WordCloud
 ```
 
 ---
 
-## Author & Profil Analis
+## Author & Kontak
 
-* **Nama:** Rifasa Hadiarto (UNIKOM)
+* **Nama:** Rifasa Hadiarto
 * **Sertifikasi:** Certified Data Analyst — Badan Nasional Sertifikasi Profesi (BNSP)
-* **Spesialisasi:** Natural Language Processing (NLP), Data Scraping & API Integration, Exploratory Data Analysis, BI Dashboards (Tableau & Looker Studio).
+* **Email:** rifasahadiarto5@gmail.com
+* **LinkedIn:** [linkedin.com/in/rifasahadiarto](https://linkedin.com/in/rifasahadiarto)

@@ -1,13 +1,5 @@
 # End-to-End YouTube Comments Sentiment Analysis & Indonesian NLP Pipeline
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1H2cyYVkeH3tRTUXjHypsI-PYQoJedkf3)
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=Python&logoColor=white)
-![YouTube API](https://img.shields.io/badge/YouTube%20Data-API%20v3-FF0000?style=for-the-badge&logo=YouTube&logoColor=white)
-![NLP](https://img.shields.io/badge/Natural%20Language-Processing-00A67E?style=for-the-badge)
-![Visuals](https://img.shields.io/badge/Seaborn%20%26-WordCloud-orange?style=for-the-badge)
-
----
-
 ## Project Overview
 
 Proyek ini adalah pipeline **Natural Language Processing (NLP) & Analisis Sentimen Bahasa Indonesia** berbasis end-to-end yang mengambil data opini publik secara langsung (*real-time scraping*) dari **YouTube Data API v3**, menjalankan pembersihan teks mendalam (*Indonesian Slang Normalization*), serta menerapkan mesin klasifikasi sentimen berbasis aturan (*Negation-Aware Sentiment Engine*).
